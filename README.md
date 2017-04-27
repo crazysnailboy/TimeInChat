@@ -1,3 +1,3 @@
 # Time in Chat
 
-### A mod for Minecraft 1.7.10
+### A mod for Minecraft 1.8.9
