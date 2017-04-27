@@ -1,0 +1,14 @@
+[{
+	"modid": "timeinchat",
+	"name": "Time in Chat Mod",
+	"description": "Displays the current time in chat on a set interval",
+	"version": "${version}",
+	"mcversion": "${mcversion}",
+	"url": "https://github.com/crazysnailboy/TimeInChat",
+	"updateUrl": "",
+	"authorList": ["crazysnailboy"],
+	"credits": "",
+	"logoFile": "",
+	"screenshots": [],
+	"dependencies": []
+}]
