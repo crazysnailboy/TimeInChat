@@ -7,7 +7,6 @@ import java.nio.charset.Charset;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -16,12 +15,10 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Lists;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
@@ -85,10 +82,9 @@ public class ChatTimeMod
 			public void run()
 			{
 				// create a chat message displaying the current time
-				ChatComponentText message = new ChatComponentText(String.format(messageText, new SimpleDateFormat(dateTimeFormat).format(getCurrentTime())));
+				TextComponentString message = new TextComponentString(String.format(messageText, new SimpleDateFormat(dateTimeFormat).format(getCurrentTime())));
 				// send the chat message to all players on the server
-				List<EntityPlayer> players = Lists.newArrayList(Iterables.filter( FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().playerEntityList , EntityPlayer.class));
-				for (EntityPlayer player : players )
+				for (EntityPlayer player : FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerList() )
 				{
 					player.addChatMessage(message);
 				}
