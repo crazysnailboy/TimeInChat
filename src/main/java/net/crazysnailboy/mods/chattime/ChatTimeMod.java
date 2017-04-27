@@ -84,9 +84,9 @@ public class ChatTimeMod
 				// create a chat message displaying the current time
 				TextComponentString message = new TextComponentString(String.format(messageText, new SimpleDateFormat(dateTimeFormat).format(getCurrentTime())));
 				// send the chat message to all players on the server
-				for (EntityPlayer player : FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerList() )
+				for (EntityPlayer player : FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayers() )
 				{
-					player.addChatMessage(message);
+					player.sendMessage(message);
 				}
 			}
 		},
